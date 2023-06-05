@@ -1,0 +1,24 @@
+{
+  "mask": [
+    {
+      "id": 1,
+      "name": "Cường VV",
+      "age": 19
+    },
+    {
+      "id": 2,
+      "name": "Phúc NV",
+      "age": 19
+    },
+    {
+      "id": 3,
+      "name": "Nam HH",
+      "age": 19
+    },
+    {
+      "id": 4,
+      "name": "Công TT",
+      "age": 19
+    }
+  ]
+}
