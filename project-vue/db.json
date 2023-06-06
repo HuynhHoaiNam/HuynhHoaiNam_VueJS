@@ -1,24 +1,176 @@
 {
   "mask": [
     {
+      "name": "Niva",
+      "manufacture": "Việt Nam",
+      "color": "Đen",
+      "note": "Chỉ sử dụng 1 lần",
+      "layer": {
+        "id": 1,
+        "name": "Một lớp"
+      },
+      "id": 3
+    },
+    {
+      "name": "KHATRACO",
+      "manufacture": "Mỹ",
+      "color": "Xám",
+      "note": "Chỉ sử dụng nhiều lần",
+      "id": 4,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Unicharm 3D",
+      "manufacture": "Trung Quốc",
+      "color": "Hồng - Đen - Xám",
+      "note": "Có thể sử dụng nhiều lần",
+      "id": 5,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Hanvico Nano",
+      "manufacture": "Mỹ",
+      "color": "Xám - Đen - Trắng",
+      "note": "Chống khói bụi ",
+      "id": 6,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "An Phúc 4 Lớp",
+      "manufacture": "U Cà",
+      "color": "Đen than",
+      "note": "Chỉ sử dụng một lần, không dùng chung với người khác.",
+      "id": 7,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Trường Dương KF94",
+      "manufacture": "Trung Quốc",
+      "color": "Xám - Đen",
+      "note": "Giặt sử dụng lại",
+      "id": 8,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Unicharm",
+      "manufacture": "Nhật Bản",
+      "color": "Giao màu ngẫu nhiên",
+      "note": "Nơi khô ráo, thoáng mát, sử dụng 1 lần",
+      "id": 11,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Dr.Mask",
+      "manufacture": "Việt Nam",
+      "color": "Xám",
+      "note": "Không dùng bột giặt có chất tẩy mạnh và nên giặt bằng tay",
+      "layer": {
+        "id": 1,
+        "name": "Một lớp"
+      },
+      "id": 12
+    },
+    {
+      "name": "hao98",
+      "manufacture": "Tàu",
+      "color": "Đen",
+      "note": "Tuyên Quang City",
+      "id": 13,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Công BD",
+      "manufacture": "Nghệ An",
+      "color": "Yims",
+      "note": "Ahihihi",
+      "id": 14,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Hanvico Nano",
+      "manufacture": "Nghệ An",
+      "color": "Đen",
+      "note": "Da Nang",
+      "id": 15,
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      }
+    },
+    {
+      "name": "Niva",
+      "manufacture": "Nghệ An",
+      "color": "Đen",
+      "note": "Da Nang",
+      "layer": {
+        "id": 3,
+        "name": "Ba lớp"
+      },
+      "id": 16
+    },
+    {
+      "name": "SamPhone",
+      "manufacture": "Tuyên Quang",
+      "color": "Trắng",
+      "note": "Dùng nhiều lần ",
+      "layer": {
+        "id": 2,
+        "name": "Hai lớp"
+      },
+      "id": 17
+    },
+    {
+      "name": "ISung",
+      "manufacture": "Nghệ An",
+      "color": "Đen",
+      "note": "Da Nang",
+      "layer": {
+        "id": 2,
+        "name": "Hai lớp"
+      },
+      "id": 18
+    }
+  ],
+  "layer": [
+    {
       "id": 1,
-      "name": "Cường VV",
-      "age": 19
+      "name": "Một lớp"
     },
     {
       "id": 2,
-      "name": "Phúc NV",
-      "age": 19
+      "name": "Hai lớp"
     },
     {
       "id": 3,
-      "name": "Nam HH",
-      "age": 19
+      "name": "Ba lớp"
     },
     {
       "id": 4,
-      "name": "Công TT",
-      "age": 19
+      "name": "Bốn lớp"
     }
   ]
 }
