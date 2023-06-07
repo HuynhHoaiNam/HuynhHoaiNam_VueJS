@@ -1,5 +1,7 @@
 <template>
-  <button @click="this.$router.push('/create-mask')">Thêm mới</button>
+  <button @click="this.$router.push('/create-mask')" class="btn btn-success">
+    Thêm mới
+  </button>
   <table class="table">
     <thead>
       <tr>
@@ -21,12 +23,13 @@
         <td>{{ mask.note }}</td>
         <td>{{ mask.layer.name }}</td>
         <td>
-          <button @click="this.$router.push('/update-mask/' + mask.id)">
+          <button @click="this.$router.push('/update-mask/' + mask.id)" class="btn btn-warning">
             Sửa
           </button>
-          <button
+          <button style="marginLeft:10px"
             @click="changeDelete(mask.id, mask.name)"
             data-bs-toggle="modal"
+            class="btn btn-danger"
             data-bs-target="#exampleModal"
           >
             Xoá

@@ -29,8 +29,13 @@
                     />
                   </div>
                   <div class="row">
-                    <div class="row" style="height: 30px">
-                      <!-- <p style="color: red">* Không được để trống</p> -->
+                    <div class="row errorName">
+                      <span
+                        style="color: red"
+                        v-for="error in v$.name.$errors"
+                        :key="error.$uid"
+                        >*{{ error.$message }}</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -53,8 +58,13 @@
                       v-model="formMask.manufacture"
                     />
                   </div>
-                  <div class="row" style="height: 30px">
-                    <!-- <p style="color: red">* Không được để trống</p> -->
+                  <div class="row errorManufacture">
+                    <span
+                      style="color: red"
+                      v-for="error in v$.manufacture.$errors"
+                      :key="error.$uid"
+                      >*{{ error.$message }}</span
+                    >
                   </div>
                 </div>
                 <div class="col-2"></div>
@@ -76,8 +86,13 @@
                       v-model="formMask.color"
                     />
                   </div>
-                  <div class="row" style="height: 30px">
-                    <!-- <p style="color: red">* Không được để trống</p> -->
+                  <div class="row errorColor">
+                    <span
+                      style="color: red"
+                      v-for="error in v$.color.$errors"
+                      :key="error.$uid"
+                      >*{{ error.$message }}</span
+                    >
                   </div>
                 </div>
                 <div class="col-2"></div>
@@ -99,8 +114,13 @@
                       v-model="formMask.note"
                     />
                   </div>
-                  <div class="row" style="height: 30px">
-                    <!-- <p style="color: red">* Không được để trống</p> -->
+                  <div class="row errorNote">
+                    <span
+                      style="color: red"
+                      v-for="error in v$.note.$errors"
+                      :key="error.$uid"
+                      >*{{ error.$message }}</span
+                    >
                   </div>
                 </div>
                 <div class="col-2"></div>
@@ -130,8 +150,13 @@
                       </option>
                     </select>
                   </div>
-                  <div class="row" style="height: 30px">
-                    <!-- <p style="color: red">* Không được để trống</p> -->
+                  <div class="row errorLayerName">
+                    <span
+                      style="color: red"
+                      v-for="error in v$.layer.name.$errors"
+                      :key="error.$uid"
+                      >*{{ error.$message }}</span
+                    >
                   </div>
                 </div>
                 <div class="col-2"></div>
@@ -154,9 +179,11 @@
 </template>
 <script>
 import maskService from "@/service/mask-service";
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, computed } from "vue";
 import router from "@/router/mask-router";
 import Swal from "sweetalert2";
+import { helpers, required, minLength } from "@vuelidate/validators";
+import useVuelidate from "@vuelidate/core";
 export default {
   name: "CreateMask",
   setup() {
@@ -176,20 +203,67 @@ export default {
       const data = await maskService.getAllListLayer();
       layerList.splice(0);
       layerList.push(...data); // Thêm
-    //   console.log(layerList);
     });
 
+    // Validate Regex
+    const manufactureRegex = helpers.regex(
+      /^[A-Z\u00C0-\u1EF9][a-zA-Z\u00C0-\u1EF9\s]*$/
+    );
+    const rules = computed(() => {
+      return {
+        name: {
+          required: helpers.withMessage("Không được để trống", required),
+          minLength: helpers.withMessage(
+            "Số kí tự ít nhất phải là 5",
+            minLength(5)
+          ),
+        },
+        manufacture: {
+          required: helpers.withMessage("Không được để trống", required),
+          regex: helpers.withMessage(
+            "Kí tự đầu viết hoa và không chứa số",
+            manufactureRegex
+          ),
+        },
+        color: {
+          required: helpers.withMessage("Không được để trống", required),
+          minLength: helpers.withMessage(
+            "Số kí tự ít nhất phải là 5",
+            minLength(5)
+          ),
+        },
+        note: {
+          required: helpers.withMessage("Không được để trống", required),
+          minLength: helpers.withMessage(
+            "Số kí tự ít nhất phải là 5",
+            minLength(5)
+          ),
+        },
+        layer: {
+          id: 0,
+          name: {
+            required: helpers.withMessage("Chưa có lựa chọn nào", required),
+          },
+        },
+      };
+    });
+
+    const v$ = useVuelidate(rules, formMask);
+
     const createMask = async () => {
-      //   console.log(formMask);
-      await maskService.createMask(formMask);
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Thêm mới thành công",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.push("/");
+      const result = await v$.value.$validate();
+      if (result) {
+        // console.log(formMask, formMask.id);
+        await maskService.createMask(formMask);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Thêm mới thành công",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        router.push("/");
+      }
     };
 
     return {
@@ -197,6 +271,7 @@ export default {
       formMask,
       router,
       layerList,
+      v$,
     };
   },
 };
@@ -208,5 +283,13 @@ h3 {
   margin-bottom: 50px;
   font-size: 28px;
   font-weight: bold;
+}
+
+.errorName,
+.errorManufacture,
+.errorColor,
+.errorNote,
+.errorLayerName {
+  height: 30px;
 }
 </style>

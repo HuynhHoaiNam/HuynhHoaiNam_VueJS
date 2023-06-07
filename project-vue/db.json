@@ -89,26 +89,15 @@
       "id": 12
     },
     {
-      "name": "hao98",
-      "manufacture": "Tàu",
-      "color": "Đen",
-      "note": "Tuyên Quang City",
-      "id": 13,
+      "name": "Hanvico Nano",
+      "manufacture": "Việt Nam",
+      "color": "Hồng",
+      "note": "Chỉ sử dụng một lần",
       "layer": {
         "id": 3,
         "name": "Ba lớp"
-      }
-    },
-    {
-      "name": "Công BD",
-      "manufacture": "Nghệ An",
-      "color": "Yims",
-      "note": "Ahihihi",
-      "id": 14,
-      "layer": {
-        "id": 3,
-        "name": "Ba lớp"
-      }
+      },
+      "id": 13
     },
     {
       "name": "Hanvico Nano",
@@ -144,10 +133,10 @@
       "id": 17
     },
     {
-      "name": "ISung",
-      "manufacture": "Nghệ An",
-      "color": "Đen",
-      "note": "Da Nang",
+      "name": "KVF94",
+      "manufacture": "Nhật Bản",
+      "color": "Đen - Trắng",
+      "note": "Có thể giặt và sử dụng nhiều lần",
       "layer": {
         "id": 2,
         "name": "Hai lớp"
